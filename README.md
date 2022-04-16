@@ -1,14 +1,19 @@
 ### System Requirements
 ```
-- pip3 install pipenv
-- pipenv install django
+- Ubuntu
+- MySQL
+- Python3
+- Pipenv
+- Django
 ```
 ### Libraries
 ```
+- pip install pymysql #mysql driver
 - pip install django-auto-logout #inactive detection
-  - pip install pytz
+  - pip install pytz #dependency
 - pip install django-allauth #google auth
 - pip install django-auth-ldap #ldap connection
+- pip install django-debug-toolbar #django debugging toolbar
 
 ```
 ### Tutorials

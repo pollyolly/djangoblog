@@ -2,14 +2,20 @@
 ```
 - pip3 install pipenv
 - pipenv install django
+- pip install pymysql
+- pip install django-debug-toolbar
 ```
 ### Libraries
 ```
 - pip install django-auto-logout #inactive detection
   - pip install pytz
-- pip install django-allauth #google auth
-- pip install django-auth-ldap #ldap connection
-
+- pip install channels
+- pip install tinymce
+- pip install django-import-export
+```
+### FrontEnd
+```
+- getbootstrap: https://getbootstrap.com/docs/5.1/examples/album/
 ```
 ### Tutorials
 ```

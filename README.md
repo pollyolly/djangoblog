@@ -1,5 +1,7 @@
 ### System Requirements
 ```
+- python 3.8.2
+- mysql 8.0.21
 - pip3 install pipenv
 - pipenv install django
 - pip install pymysql

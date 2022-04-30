@@ -3,10 +3,10 @@
 {% block content %}
 <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
         <div class="col">
           <div class="card shadow-sm">
-		  <img width="100%" height="225" src="{{ MEDIA_URL }}{{post.thumbnail }}">
+		  <img width="100%" height="450" src="{{ MEDIA_URL }}{{post.thumbnail }}">
             <div class="card-body">
 		    <p class="card-text">{{post.title}}</p>
 		    <p class="card-text">
@@ -26,7 +26,77 @@
             </div>
           </div>
         </div>
-     </div>
+	<div class="col">
+		{% if messages %}
+		    {% for message in messages %}
+			    <div{% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" {% endif %}>
+				<strong>{{ message }}</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			    </div>
+		    {% endfor %}
+		{% endif %}
+		<p>Comments</p>
+		<form method="post" action="" class="post-form">
+		  {% csrf_token %} 
+		  {{commentform.post}}
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputEmail1">Name</label>
+				{{commentform.name}}
+		  	</div>
+		  </div>
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputPassword1">Comment</label>
+				{{commentform.comment}}
+		 	</div>
+		  </div>
+		  <div class="mb-3">
+		  	<div class="form-group">
+				<input type="submit" value="Comment" class="btn btn-primary" />
+	          	</div>
+		  </div>
+		</form>
+
+	     <div class="d-flex justify-content-between align-items-center">
+		<div class="btn-group">
+		{% if comments.has_previous %}
+			<a href="?page=1" type="button" class="btn btn-sm btn-outline-secondary">&laquo; first</a>
+            		<a href="?page={{ comments.previous_page_number }}" type="button" class="btn btn-sm btn-outline-secondary">previous</a>
+        	{% endif %}
+		{% if comments.has_next %}
+            		<a href="?page={{ comments.next_page_number }}" type="button" class="btn btn-sm btn-outline-secondary">next</a>
+            		<a href="?page={{ comments.paginator.num_pages }}" type="button" class="btn btn-sm btn-outline-secondary">last &raquo;</a>
+        	{% endif %}
+                </div>
+		<small class="text-muted">
+                        Page {{ comments.number }} of {{ comments.paginator.num_pages }}.
+                </small>
+
+              </div>
+
+		<div class="page-header">
+			<p>{{totalcomment|length}} Comments</p>
+                </div> 
+                <div class="comments-list">
+			{%  if comments|length > 0 %}
+			{% for comment in comments %}
+                	<div class="media">
+				<p class="float-right" style="float:right;margin-top:5px;"><small>{{comment.created}}</small></p>
+                        	<a class="media-left" href="#">
+ 	                       		<img src="https://i.pravatar.cc/30">
+                        	</a>
+	                	<div class="media-body">                        
+					<h4 class="media-heading user_name">{{comment.name}}</h4>
+					{{comment.comment}}                      
+                        	</div>
+                	</div>
+			{% endfor %}
+			{% endif %}
+          	</div>
+	  </div>
+     	</div>
     </div>
 </div>
+
 {% endblock content %}

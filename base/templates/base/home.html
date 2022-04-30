@@ -10,7 +10,9 @@
 		  <img width="100%" height="225" src="{{MEDIA_URL}}{{post.thumbnail}}">
             <div class="card-body">
                     <p class="card-text">{{post.title}}</p>
-		    <p class='text-warning'>Testing only</p>
+		    <p class='text-warning'>
+		    {{ post.tag.all|join:", " }}
+		    </p>
                     <p class="card-text">
 		    {% autoescape off %}
 		    {{post.post | truncatechars:150 }}

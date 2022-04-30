@@ -9,10 +9,17 @@ class Setting(models.Model):
    def __str__(self):
        return self.site_title
 
-
 class SocialMedia(models.Model):
     setting = models.ForeignKey(Setting, blank=True, null=True, on_delete=models.SET_NULL)
     social_media = models.CharField(max_length=500)
     def __str__(self):
         return self.social_media
-
+"""
+class PostStatus(models.Model):
+    STATUSES = [('Pb','Published'),
+                ('Pd','Pending'),
+                ('Dr','Draft')]
+    status = models.CharField(max_length=50,choices=STATUSES)
+    def __str__(self):
+        return self.status
+"""

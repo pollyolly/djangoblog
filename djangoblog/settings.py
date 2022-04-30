@@ -23,15 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-f*veq048om8bzlry#6(2sdo6bfjb8smi=lih62se4our0!5j1o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost','127.0.0.1','djangoblog.com'] #to read by nginx
-
+ALLOWED_HOSTS = ['*'] #to read by nginx
 
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    #'adminlte3',
+    #'adminlte3_theme',
     'django.contrib.admin',
     #'django.contrib.auth',
     'setting.apps.AuthConfig',
@@ -39,15 +38,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'tinymce',
     'debug_toolbar',
     'base',
     #'base.apps.BaseConfig', #base
     'setting.apps.SettingConfig', #setting app
-    'blogpost' #blogpost app
+    'blogpost', #blogpost app
+    'chat'
     #'admin_reorder'
 
 ]
+
+ASGI_APPLICATION = 'djangoblog.asgi.application'
+WSGI_APPLICATION = 'djangoblog.wsgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer" #good for testing only 
+    }
+}
 
 MIDDLEWARE = [
     #'admin_reorder.middleware.ModelAdminReorder',
@@ -79,18 +89,18 @@ INTERNAL_IPS = [
     # ...
 ]
 
+DEBUG = True
+
 ROOT_URLCONF = 'djangoblog.urls'
 #files url settings
-MEDIA_URL = '/uploaded_files/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "")
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = '/staticflies/'
+MEDIA_URL = '/uploaded_files/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles/bootstrap_album') #register manually created directory for static files
+    os.path.join(BASE_DIR, 'staticfiles/bootstrap_album') #register manually other created directory for static files
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #Where to copy the static files 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #set Where to copy the static files 
+#MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_files")
 
 
 TEMPLATES = [
@@ -113,9 +123,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djangoblog.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -133,7 +140,12 @@ DATABASES = {
 
 }
 
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -151,6 +163,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 
 # Internationalization

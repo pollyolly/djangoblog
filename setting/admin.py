@@ -13,5 +13,9 @@ class Setting(admin.ModelAdmin):
     search_fields = ("site_title__startswith", )
     empty_value_display = 'None'
     inlines = [SocialMediaInline]
-    
 
+"""
+@admin.register(PostStatus)
+class PostStatus(admin.ModelAdmin):
+        list_display = ("status",)
+"""

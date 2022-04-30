@@ -19,12 +19,21 @@ import debug_toolbar
 from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
+
+from django.views.static import serve
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('_debug_/', include(debug_toolbar.urls)),
     path('tinymce/', include('tinymce.urls')),
+    #path('logout/', include('tinymce.urls')),
     path('', include('base.urls')),
     path('', include('blogpost.urls')),
-    path('', include('setting.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
-#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', include('setting.urls')),
+    path('', include('chat.urls')),
+
+]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

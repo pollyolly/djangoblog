@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 # Register your models here.
-from .models import Tag, Post, Comment, Category, PostStatus #import model Post
+from .models import Tag, Post, Comment, Category #import model Post
 import csv
 from django.http import HttpResponse
+from import_export.admin import ImportExportModelAdmin
 
 #from .models import Post #import model Post
 
@@ -23,14 +24,10 @@ class ExportCsvMixin:
 
         return response
     export_as_csv.short_description = "Export Selected"
-
+"""
 class CommentInline(admin.StackedInline): #inline in Post
     model = Comment
     extra = 0
-"""
-@admin.register(PostStatus)
-class PostStatus(admin.ModelAdmin):
-    list_display = ("status",)
 """
 @admin.register(Category) #display in admin.py
 class Category(admin.ModelAdmin):
@@ -47,24 +44,23 @@ class Tag(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ("tag__startswith", )
     empty_value_display = 'None'
-"""
+
 @admin.register(Comment)
 class Comment(admin.ModelAdmin):
     list_display = ("name","comment","created","updated")
     list_filter = ("name",)
     list_per_page = 10
-    search_fields = ("name__startwith",)
+    search_fields = ("name__startswith","comment__contains",)
     empty_value_display = 'None'
-"""
 
 @admin.register(Post)
-class BlogPost(admin.ModelAdmin,ExportCsvMixin):
+class BlogPost(ImportExportModelAdmin,ExportCsvMixin):
     list_display = ('title','post','tag_list','category_list','status','created','updated') #show columns in django admin
     list_filter = ("title",)
     list_per_page = 10
     search_fields = ('title__startswith', 'post__contains',)
     empty_value_display = 'None'
-    inlines = [CommentInline]
+    #inlines = [CommentInline]
     readonly_fields = ["thumbnail_image"]
     filter_horizontal = ('category',) #enable filter box horizontal for many to many field
     actions = ['export_as_csv']

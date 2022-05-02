@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     #'base.apps.BaseConfig', #base
     'setting.apps.SettingConfig', #setting app
     'blogpost', #blogpost app
-    'chat'
+    'chat',
+    'register'
     #'admin_reorder'
 
 ]

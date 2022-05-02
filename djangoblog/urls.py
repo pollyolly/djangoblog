@@ -31,6 +31,7 @@ urlpatterns = [
     path('', include('blogpost.urls')),
     path('', include('setting.urls')),
     path('', include('chat.urls')),
+    path('', include('register.urls'))
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

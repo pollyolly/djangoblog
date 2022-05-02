@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+	<div class="col">
+		{% for field in registerform %}
+                        {% for error in field.errors %}
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>{{field.label}}: {{error}}</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   	        </div>
+			{% endfor %}
+		{% endfor %}
+		<p>Register</p>
+		<form method="post" class="post-form">
+		  {% csrf_token %}
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputEmail1">Username</label>
+				{{registerform.username}}
+		  	</div>
+		  </div>
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputPassword1">Email</label>
+				{{registerform.email}}
+		 	</div>
+		  </div>
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputPassword1">Password </label>
+				{{registerform.password1}}
+		 	</div>
+		  </div>
+		  <div class="mb-3">
+		  	<div class="form-group">
+		    		<label for="exampleInputPassword1">Confirm Password </label>
+				{{registerform.password2}}
+		 	</div>
+		  </div>
+
+		  <div class="mb-3">
+		  	<div class="form-group">
+				<input type="submit" value="Register" class="btn btn-primary" />
+	          	</div>
+		  </div>
+		</form>
+	  </div>
+     	</div>
+    </div>
+</div>
+{% endblock content %}

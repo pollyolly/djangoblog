@@ -4,6 +4,10 @@
 	<p class="float-end mb-1">
 	        <a href="#">Back to top</a>
         </p>
-	<p class="mb-1">{{sitesetting.site_footer}}</p>
+	<p class="mb-1">
+	{% autoescape off %}
+	{{sitesetting.site_footer}}
+	{% endautoescape %}
+	</p>
 	</div>
 </footer>

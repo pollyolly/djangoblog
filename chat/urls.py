@@ -4,5 +4,5 @@ from django.http import HttpResponse
 from . import views
 
 urlpatterns = [
-    path('chat/', views.chats,name="chats"),
+        path('chat/<str:room_name>/', views.chats,name="chats"),
 ]

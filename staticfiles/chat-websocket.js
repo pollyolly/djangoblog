@@ -1,4 +1,5 @@
-let url = `ws://${window.location.host}/ws/djangoblog-socket/`
+const room_name = JSON.parse(document.getElementById('room-name').textContent); //Get RoomName value
+let url = `ws://${window.location.host}/ws/djangoblog-socket/`+room_name+'/'
 
 const chatSocket = new WebSocket(url)
 chatSocket.onmessage = function(e){

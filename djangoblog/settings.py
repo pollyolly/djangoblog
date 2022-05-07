@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic', #For Development Use
     'import_export',
     'tinymce',
     'debug_toolbar',
@@ -70,7 +71,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_auto_logout.middleware.auto_logout'
+    'django_auto_logout.middleware.auto_logout',
+    'whitenoise.middleware.WhiteNoiseMiddleware' #whitenoice
    
 ]
 """
@@ -103,6 +105,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #set Where to copy the static files 
 #MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_files")
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #whitenoice
 
 TEMPLATES = [
     {

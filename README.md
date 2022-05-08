@@ -1,19 +1,9 @@
-### System Requirements
+### Heroku Requirements
 ```
-- python 3.8.2
-- mysql 8.0.21
-- pip3 install pipenv
-- pipenv install django
-- pip install pymysql
-- pip install django-debug-toolbar
-```
-### Libraries
-```
-- pip install django-auto-logout #inactive detection
-  - pip install pytz
-- pip install channels
-- pip install tinymce
-- pip install django-import-export
+Procfile
+requirements.txt ($pipenv run pip freeze > requirements.txt)
+runtime.txt
+
 ```
 ### FrontEnd
 ```

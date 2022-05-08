@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-f*veq048om8bzlry#6(2sdo6bfjb8smi=lih62se4our0!5j1o'
 
-ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1'] #to read by nginx
+ALLOWED_HOSTS = ['*'] #to read by nginx
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic', #For Development Use
+    'corsheaders',
     'import_export',
     'tinymce',
     'debug_toolbar',
@@ -61,11 +63,19 @@ CHANNEL_LAYERS = {
     }
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "https://personalalbum-blog.herokuapp.com",
+    "http://personalalbum-blog.herokuapp.com",
+    "http://localhost:9999",
+    "http://127.0.0.1:9999"
+]
+
 MIDDLEWARE = [
     #'admin_reorder.middleware.ModelAdminReorder',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -105,7 +115,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #set Where to copy the static files 
 #MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_files")
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #whitenoice
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #whitenoice
 
 TEMPLATES = [
     {

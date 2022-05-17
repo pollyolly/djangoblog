@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f*veq048om8bzlry#6(2sdo6bfjb8smi=lih62se4our0!5j1o'
 
 ALLOWED_HOSTS = ['*'] #to read by nginx
-CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['https://personalalbum-blog.herokuapp.com','http://personalalbum-blog.herokuapp.com']
+#CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic', #For Development Use
-    'corsheaders',
+    #'corsheaders',
     'import_export',
     'tinymce',
     'debug_toolbar',
@@ -63,19 +64,19 @@ CHANNEL_LAYERS = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "https://personalalbum-blog.herokuapp.com",
-    "http://personalalbum-blog.herokuapp.com",
-    "http://localhost:9999",
-    "http://127.0.0.1:9999"
-]
+#CORS_ALLOWED_ORIGINS = [
+#    "https://personalalbum-blog.herokuapp.com",
+#    "http://personalalbum-blog.herokuapp.com",
+#    "http://localhost:9999",
+#    "http://127.0.0.1:9999"
+#]
 
 MIDDLEWARE = [
     #'admin_reorder.middleware.ModelAdminReorder',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -83,15 +84,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_auto_logout.middleware.auto_logout',
     'whitenoise.middleware.WhiteNoiseMiddleware' #whitenoice
-   
 ]
-"""
-ADMIN_REORDER = (
-    'base',
-    'setting',
-    { 'app':'blogpost','models':('blogpost.Post','blogpost.Category','blogpost.Tag')},
-)
-"""
 #Auto Logout
 #AUTO_LOGOUT = {'IDLE_TIME': 600}
 AUTO_LOGOUT = {'IDLE_TIME': timedelta(minutes=20)} #logut after 20 minutes of idle

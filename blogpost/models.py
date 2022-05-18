@@ -26,7 +26,7 @@ class Tag(models.Model):
     
 class Post(models.Model):
     #tag = models.ForeignKey(Tag, blank=True, null=True, on_delete=models.SET_NULL)
-    thumbnail = models.ImageField(null=True, blank=True, upload_to="uploaded_files/")
+    thumbnail = models.ImageField(null=True, blank=True, upload_to="medias/")
     title = models.CharField(max_length=200)
     #post = models.TextField(null=True, blank=True)
     post = HTMLField()

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic', #For Development Use
+    #'whitenoise.runserver_nostatic', #For Development Use
     #'corsheaders',
     'import_export',
     'tinymce',
@@ -95,21 +95,21 @@ INTERNAL_IPS = [
     # ...
 ]
 
-DEBUG = True
+DEBUG = False
 
 ROOT_URLCONF = 'djangoblog.urls'
 #files url settings
-STATIC_URL = '/staticflies/'
-MEDIA_URL = '/uploaded_files/'
+MEDIA_URL = '/uploadedfiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploadedfiles") #mnt/f/Desktop/dev-django-projects/djangoblog/uploadedfiles
 
+STATIC_URL = '/staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #set Where to copy the static files 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles/bootstrap_album') #register manually other created directory for static files
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #set Where to copy the static files 
-#MEDIA_ROOT = os.path.join(BASE_DIR, "uploaded_files")
 
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #whitenoice
-
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" #whitenoise
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage" #whitenoise
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

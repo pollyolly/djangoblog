@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'channels',
     #'adminlte3',
     #'adminlte3_theme',
+    'jazzmin',
     'django.contrib.admin',
     #'django.contrib.auth',
     'setting.apps.AuthConfig',
@@ -95,7 +96,7 @@ INTERNAL_IPS = [
     # ...
 ]
 
-DEBUG = False
+DEBUG = True
 
 ROOT_URLCONF = 'djangoblog.urls'
 #files url settings

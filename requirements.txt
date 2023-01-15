@@ -48,7 +48,7 @@ sqlparse==0.4.2
 tablib==3.2.1
 Twisted==22.4.0
 txaio==22.2.1
-typing_extensions==4.2.0
+typing-extensions==4.2.0
 webencodings==0.5.1
 whitenoise==6.0.0
 xlrd==2.0.1

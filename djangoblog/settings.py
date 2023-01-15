@@ -21,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f*veq048om8bzlry#6(2sdo6bfjb8smi=lih62se4our0!5j1o'
+#SECRET_KEY = 'django-insecure-f*veq048om8bzlry#6(2sdo6bfjb8smi=lih62se4our0!5j1o'
+SECRET_KEY = '185006c02c8f3b5c027484e9c5343983d26a6055e679e68719a09134f0f15be1d11482ee9b2429cfea76643ee18a829ad59ff72a0f1646f56099555c'
 
-ALLOWED_HOSTS = ['*'] #to read by nginx
-CSRF_TRUSTED_ORIGINS = ['https://personalalbum-blog.herokuapp.com','http://personalalbum-blog.herokuapp.com']
+DEBUG = False
+
+ALLOWED_HOSTS = ['*','127.0.0.1','.iwebitechnology.xyz','djangoblog.iwebitechnology.xyz','iwebitechnology.xyz'] #to read by nginx
+CSRF_TRUSTED_ORIGINS = ['https://iwebitechnology.xyz','http://iwebitechnology.xyz','https://djangoblog.iwebitechnology.xyz','http://djangoblog.iwebitechnology.xyz']
 #CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -45,7 +48,7 @@ INSTALLED_APPS = [
     #'corsheaders',
     'import_export',
     'tinymce',
-    'debug_toolbar',
+    #'debug_toolbar',
     'base',
     #'base.apps.BaseConfig', #base
     'setting.apps.SettingConfig', #setting app
@@ -95,8 +98,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
-
-DEBUG = True
 
 ROOT_URLCONF = 'djangoblog.urls'
 #files url settings
@@ -191,3 +192,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#python manage.py check --deploy
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True 
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True   
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 60

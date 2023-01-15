@@ -24,17 +24,20 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('_debug_/', include(debug_toolbar.urls)),
+    #path('_debug_/', include(debug_toolbar.urls)),
     path('tinymce/', include('tinymce.urls')),
-    #path('logout/', include('tinymce.urls')),
     path('', include('base.urls')),
     path('', include('blogpost.urls')),
     path('', include('setting.urls')),
     path('', include('chat.urls')),
-    path('', include('register.urls'))
-
+    path('', include('register.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = "base.views.page_not_found_here"
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'djangoblog.views.handler404'
+handler400 = 'djangoblog.views.handler404'
+handler403 = 'djangoblog.views.handler404'
+

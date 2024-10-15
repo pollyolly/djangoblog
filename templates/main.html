@@ -47,7 +47,6 @@
 	{% block content %}
 		<!-- Automatically Add the Contents here -->
 	{% endblock %}
-
 </main>
 	{% include 'footer.html' %}
 
@@ -55,7 +54,9 @@
 <!-- script src="{% static 'jquery-3.2.1.slim.min.js' %}"></script -->
 <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'blog.js' %}"></script>
-<script src="{% static 'chat-websocket.js' %}"></script>
+{%  if '/chat/' in request.path %}
+	<script src="{% static 'chat-websocket.js' %}"></script>
+{% endif %}
 
 
 </body>

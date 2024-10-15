@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from . import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home,name="homepage"),
     #path('blogpost/<str:pk>/', views2.post, name="postname"),
     #path('admin/blogpost/post/<str:pk>/change/',views.editpost,name="editpost")
 ]

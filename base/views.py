@@ -15,6 +15,3 @@ def home(request):
 
 def editpost(request, pk):
     pass 
-
-def page_not_found_here(request, exception):
-    return render(request, 'base/404.html', {'status':404})

@@ -6,6 +6,9 @@ import csv
 from django.http import HttpResponse
 from import_export.admin import ImportExportModelAdmin
 
+from django.contrib.auth.models import Permission
+admin.site.register(Permission)
+
 #from .models import Post #import model Post
 
 #admin.site.register(Post) #Register model Post in Django Admin Panel

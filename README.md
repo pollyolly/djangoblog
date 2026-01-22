@@ -9,6 +9,9 @@ runtime.txt
 ```
 - getbootstrap: https://getbootstrap.com/docs/5.1/examples/album/
 ```
+### Deployment
+[Django Deployment](https://github.com/pollyolly/DJANGO-NOTE)
+
 ### Tutorials
 [django-auto-logout](https://pypi.org/project/django-auto-logout/)
 

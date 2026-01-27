@@ -41,6 +41,10 @@ application = get_wsgi_application()
 
 <image src="https://github.com/pollyolly/djangoblog/blob/master/pythonanywhere-setup.png" width="350" />
 
+```
+#Fix Server 500 Error on Web Page
+$python manage.py collectstatic --no-input
+```
 ### Fix Install Requirements
 Install Requirements
 ```

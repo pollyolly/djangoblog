@@ -15,9 +15,10 @@ $rmvirtualenv <my_virtual_environment>
 ```
 ### Fix Install Requirements
 ```
-$pip install bleach #remove this from requirements.txt and install
-$pip install pillow #remove this from requirements.txt and install
-$pip install PyYAML #remove this from requirements.txt and install
+zope.interface #Remove this from requirements.txt
+$pip install bleach #Remove this from requirements.txt and install without version
+$pip install pillow #Remove this from requirements.txt and install without version
+$pip install PyYAML #Remove this from requirements.txt and install without version
 $pip install -r requirements.txt
 ```
 ### Heroku Requirements

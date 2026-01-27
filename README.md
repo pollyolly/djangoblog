@@ -1,4 +1,4 @@
-### Django Blog venv 
+### Django Blog venv Version
 [Django Blog Venv](https://github.com/pollyolly/djangoblog-venv)
 
 ### Django Blog Deployment on VPS

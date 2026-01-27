@@ -28,7 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*','127.0.0.1','.iwebitechnology.xyz','.pythonanywhere.com'] #to read by nginx
 CSRF_TRUSTED_ORIGINS = ['https://djangoblog.iwebitechnology.xyz','https://pollyolly.pythonanywhere.com']
-#CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 

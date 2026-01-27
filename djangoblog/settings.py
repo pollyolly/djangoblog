@@ -26,8 +26,8 @@ SECRET_KEY = '185006c02c8f3b5c027484e9c5343983d26a6055e679e68719a09134f0f15be1d1
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*','127.0.0.1','.iwebitechnology.xyz','djangoblog.iwebitechnology.xyz','iwebitechnology.xyz'] #to read by nginx
-CSRF_TRUSTED_ORIGINS = ['https://iwebitechnology.xyz','http://iwebitechnology.xyz','https://djangoblog.iwebitechnology.xyz','http://djangoblog.iwebitechnology.xyz']
+ALLOWED_HOSTS = ['*','127.0.0.1','.iwebitechnology.xyz','.pythonanywhere.com'] #to read by nginx
+CSRF_TRUSTED_ORIGINS = ['https://djangoblog.iwebitechnology.xyz','https://pollyolly.pythonanywhere.com']
 #CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition

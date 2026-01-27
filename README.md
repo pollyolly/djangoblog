@@ -1,5 +1,11 @@
-### Djangoblog venv version latest 
+### Django Blog venv 
 [Djangoblog Venv](https://github.com/pollyolly/djangoblog-venv)
+
+### Django Blog Deployment on VPS
+[Django Blog VPS](https://medium.com/aws-tip/setup-and-start-a-django-project-in-m1-7c36f96c3088)
+
+### Django Blog Deployment on pythonanywhere.com
+[Django Blog]()
 
 ### Heroku Requirements
 ```

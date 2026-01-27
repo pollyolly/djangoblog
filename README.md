@@ -7,7 +7,8 @@
 ### Django Blog Deployment on [Python Anywhere](pythonanywhere.com)
 ```
 $mkvirtualenv --python=python3.13 djangoblog #Ceate Virtual Environment with specified python version
-$pip install -r requirements.txt
+$pip freeze > requirements.txt #Create List of Installed Modules
+$pip install -r requirements.txt #Install Modules from Requirements List
 $workon <my_virtual_environment> #Activate Created Virtual Environment
 $lsvirtualenv #List Created Virtual Environment
 $rmvirtualenv <my_virtual_environment>

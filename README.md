@@ -47,7 +47,7 @@ requirements.txt ($pipenv run pip freeze > requirements.txt)
 runtime.txt
 
 ```
-### FrontEnd
+### Frontend
 ```
 - getbootstrap: https://getbootstrap.com/docs/5.1/examples/album/
 ```

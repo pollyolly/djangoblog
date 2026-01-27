@@ -14,12 +14,27 @@ $lsvirtualenv #List Created Virtual Environment
 $rmvirtualenv <my_virtual_environment>
 ```
 ### Fix Install Requirements
+Install Requirements
 ```
-zope.interface #Remove this from requirements.txt
+zope.interface #Remove this from requirements.txt Not Required in python < 13
+```
+```
 $pip install bleach #Remove this from requirements.txt and install without version
 $pip install pillow #Remove this from requirements.txt and install without version
 $pip install PyYAML #Remove this from requirements.txt and install without version
 $pip install -r requirements.txt
+```
+Install Django modules
+```
+$pip install django
+$pip install channels
+$pip install django-jazzmin
+$pip install django-import-export
+$pip install django-tinymce
+$pip install django-debug-toolbar
+$pip install pillow
+$pip install whitenoise
+$pip install django-auto-logout
 ```
 ### Heroku Requirements
 ```

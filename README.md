@@ -1,8 +1,12 @@
-### Python Version
+### System Requirements
 ```
-Python 13 above
+- Python 3.13 above
+- Django
+- WSGI Web Server -> Gunicorn
+- ASGI for Websocket -> Daphne
+- SQLite
+- NginX
 ```
-
 ### Django Blog venv Version
 [Django Blog Venv](https://github.com/pollyolly/djangoblog-venv)
 

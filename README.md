@@ -13,7 +13,12 @@ $workon <my_virtual_environment> #Activate Created Virtual Environment
 $lsvirtualenv #List Created Virtual Environment
 $rmvirtualenv <my_virtual_environment>
 ```
-
+### Fix Install Requirements
+```
+$pip install bleach
+$pip install pillow
+$pip install -r requirements.txt
+```
 ### Heroku Requirements
 ```
 Procfile

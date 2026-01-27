@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     #'corsheaders',
     'import_export',
     'tinymce',
-    #'debug_toolbar',
+    'debug_toolbar',
     'base',
     #'base.apps.BaseConfig', #base
     'setting.apps.SettingConfig', #setting app

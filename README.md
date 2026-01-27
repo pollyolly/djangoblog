@@ -4,8 +4,14 @@
 ### Django Blog Deployment on VPS
 [Django Blog VPS](https://medium.com/aws-tip/setup-and-start-a-django-project-in-m1-7c36f96c3088)
 
-### Django Blog Deployment on pythonanywhere.com
-[Django Blog]()
+### Django Blog Deployment on [Python Anywhere](pythonanywhere.com)
+```
+$mkvirtualenv --python=python3.13 djangoblog #Ceate Virtual Environment with specified python version
+$pip install -r requirements.txt
+$workon <my_virtual_environment> #Activate Created Virtual Environment
+$lsvirtualenv #List Created Virtual Environment
+$rmvirtualenv <my_virtual_environment>
+```
 
 ### Heroku Requirements
 ```

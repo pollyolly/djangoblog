@@ -1,3 +1,8 @@
+### Python Version
+```
+Python 13 above
+```
+
 ### Django Blog venv Version
 [Django Blog Venv](https://github.com/pollyolly/djangoblog-venv)
 
